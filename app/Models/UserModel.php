@@ -31,9 +31,11 @@ class UserModel extends Model
 
     // Validation
     protected $validationRules      = [
+        'student_id' => 'required|is_unique[users.student_id]',
+        'name' => 'required',
         'email'    => 'required|valid_email|is_unique[users.email]',
         'password' => 'required|min_length[6]',
-        'role_id'  => 'required|integer|exists[roles.id]', // Ensure role_id exists in roles table
+//        'role_id'  => 'required|integer',
     ];
     protected $validationMessages   = [];
     protected $skipValidation       = false;
