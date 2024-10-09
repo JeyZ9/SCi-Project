@@ -13,3 +13,9 @@ $routes->group("api", function ($routes) {
     $routes->get("users", "User::index", ['filter' => 'authFilter']);
     $routes->get('create-default-roles', 'User::createDefaultRoles');
 });
+
+$routes->group("api/activity", function ($routes) {
+    $routes->get('/', 'Activity::index');
+    $routes->get('(:num)', 'Activity::getActivityById/$1');
+    $routes->post('/', 'Activity::addActivity');
+});
